@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new Chat</title>
+    <style>
+        form{
+            padding: 10px;
+        }
+        input, textarea{
+            margin: 10px;
+            background-color: aliceblue;
+            /* border: none; */
+            outline: none;
+        }
+        textarea{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Edit your chat...</h3>
+    <h2><%= requestedChat['_id'] %></h2>
+    <form action="/chats/<%= requestedChat['_id'] %>?_method=PATCH" method="post">
+        <input type="text" value="<%= requestedChat['from'] %>" name="from" readonly><br>
+        <textarea name="message"><%= requestedChat['message'] %></textarea><br>
+        <input type="text" value="<%= requestedChat['to'] %>" name="to" readonly><br>
+        <button type="submit">Create Chat</button>
+    </form>
+</body>
+</html>
